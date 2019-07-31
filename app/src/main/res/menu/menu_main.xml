@@ -6,12 +6,30 @@
         android:icon="@drawable/video_camera"
         android:orderInCategory="100"
         android:title="Video Call"
-        app:showAsAction="always"></item>
+        app:showAsAction="always"/>
     <item
         android:id="@+id/call"
         android:icon="@drawable/call"
         android:orderInCategory="100"
+        android:title="Call"
+        app:showAsAction="always"/>
 
-        android:title="Video Call"
-        app:showAsAction="always"></item>
+    <item
+        android:id="@+id/setting"
+        android:icon="@drawable/setting"
+        android:orderInCategory="100"
+        android:title="Setting"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/Logout"
+        android:icon="@drawable/setting"
+        android:orderInCategory="100"
+        android:title="Logout"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/setting"
+        android:orderInCategory="100"
+        android:title="About"
+        app:showAsAction="never"/>
 </menu>
