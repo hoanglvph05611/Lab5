@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Lab5</string>
-    <string name="text_test">ão sẽ gây mưa lớn trong hai ngày 1-2/8 ở Đông Bắc Bộ và Thanh Hóa. Sang ngày 3/8, mưa lớn tập trung ở Tây Bắc Bộ và miền núi phía Bắc. Tổng lượng mưa cả đợt dự báo 100-300 mm</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="text_test">bão sẽ gây mưa lớn trong hai ngày 1-2/8 ở Đông Bắc Bộ và Thanh Hóa. Sang ngày 3/8, mưa lớn tập trung ở Tây Bắc Bộ và miền núi phía Bắc. Tổng lượng mưa cả đợt dự báo 100-300 mm</string>
 </resources>

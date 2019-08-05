@@ -88,8 +88,8 @@
                 android:padding="8dp"
                 android:src="@drawable/send" />
 
-            <EditText
-                android:id="@+id/etMsg"
+            <com.rockerhieu.emojicon.EmojiconEditText
+                android:id="@+id/edMsg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
