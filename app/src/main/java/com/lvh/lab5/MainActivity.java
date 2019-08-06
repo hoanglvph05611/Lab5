@@ -7,8 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EmojiconEditText editText;
 
+    private ImageView btnSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // toolbar.setSubtitle("last active: 10 sec ago");
-
+        btnSend = findViewById(R.id.ivSend);
         lvList = findViewById(R.id.mList);
         chatList = new ArrayList<>();
         linearLayoutManager = new LinearLayoutManager(this);
@@ -73,29 +77,34 @@ public class MainActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.edMsg);
 
-        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+            public void onClick(View view) {
 
-                Log.e("EVENT", keyEvent.getAction() + "");
-                if (keyEvent.getAction() == 0) {
-                    String message = editText.getText().toString();
-
-                    Message chat = new Message();
-                   // chat.name = "Huy Nguyen";
-                    chat.msgMy = message;
-                    chatList.add(chat);
-                    chatAdapter.notifyDataSetChanged();
-
-                    mSocket.emit("new message", message);
-                    editText.setText("");
-
-                    lvList.smoothScrollToPosition(chatList.size() - 1);
+                String message = editText.getText().toString();
+                if (TextUtils.isEmpty(message)) {
+                    return;
                 }
+                editText.setText("");
 
-                return false;
+                mSocket.emit("new message", message);
+                Message chat = new Message();
+                chat.name = "LVH Coder";
+                chat.message = message;
+                chatList.add(chat);
+                chatAdapter.notifyDataSetChanged();
+                lvList.smoothScrollToPosition(chatList.size() - 1);
+
             }
         });
+
+//        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+//
+//                Log.e("EVENT", keyEvent.getAction() + "");
+//
+//        });
 
         mSocket.emit("add user", "LVH Coder");
 
@@ -136,12 +145,12 @@ public class MainActivity extends AppCompatActivity {
                     String username;
                     String message;
                     try {
-                    //    username = data.getString("username");
+                        //    username = data.getString("username");
                         message = data.getString("message");
 
                         Message chat = new Message();
-                     //   chat.name = username;
-                        chat.msgOther = message;
+                        //   chat.name = username;
+                        chat.message = message;
                         chatList.add(chat);
                         chatAdapter.notifyDataSetChanged();
                         lvList.smoothScrollToPosition(chatList.size() - 1);
@@ -161,5 +170,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mSocket.disconnect();
+        mSocket.off("new message",onNewMessage);
     }
 }

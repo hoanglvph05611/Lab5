@@ -9,14 +9,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lvh.lab5.R;
 import com.rockerhieu.emojicon.EmojiconTextView;
 
-class ViewHolder extends RecyclerView.ViewHolder {
+public class OtherViewHolder extends RecyclerView.ViewHolder {
 
-    public final EmojiconTextView tvMSGOther,tvMSGMy;
+    public EmojiconTextView tvMSGOther;
+    public TextView tvNameO;
 
-    public ViewHolder(@NonNull View itemView) {
+    OtherViewHolder(@NonNull View itemView) {
         super(itemView);
-        tvMSGMy = itemView.findViewById(R.id.tvSMyMSG);
+        tvNameO = itemView.findViewById(R.id.tvNameOther);
         tvMSGOther = itemView.findViewById(R.id.tvOMsg);
-
     }
+
 }

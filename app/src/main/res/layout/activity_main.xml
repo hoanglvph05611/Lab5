@@ -98,6 +98,7 @@
                 android:layout_toLeftOf="@+id/ivSend"
                 android:layout_toRightOf="@+id/imgCamera"
                 android:hint="Say something..."
+                android:imeOptions="actionSend"
                 android:background="@null"/>
 
         </RelativeLayout>

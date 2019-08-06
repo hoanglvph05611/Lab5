@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
+    android:gravity="right"
+    android:orientation="horizontal"
     app:cardCornerRadius="8dp">
+
+    <TextView
+        android:id="@+id/tvNameMy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <com.rockerhieu.emojicon.EmojiconTextView
+        android:id="@+id/tvSMyMSG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:id="@+id/tvSMyMSG"
-        android:textColor="#ffffff"
-        android:textSize="16sp"
+        android:layout_marginLeft="50dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="2dp"
         android:background="@drawable/bg_single_my_msg"
         android:padding="15sp"
-        android:text="@string/text_test" />
-</androidx.cardview.widget.CardView>
+        android:text="@string/text_test"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
+</LinearLayout>
